@@ -1,9 +1,10 @@
+language: generic
 sudo: required
 services: 
   - docker
 
 before_install:
-  - docker build -t catycherkesky/docker-react -f Dockerfile.dev .
+  - docker build -t catysomething/docker-react -f Dockerfile.dev .
 
 script:
-  - docker run -e CI=true catycherkesky/docker-react npm run test
+  - docker run -e CI=true catysomething/docker-react npm run test -- a
