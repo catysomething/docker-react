@@ -8,3 +8,13 @@ before_install:
 
 script:
   - docker run -e CI=true catysomething/docker-react npm run test -- a
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-2
+  app: "docker-ci-test"
+  env: "DockerCiTest-env"
+  bucket_name: "elasticbeanstalk-us-east-2-797302708223"
+  bucket_path: "docker-ci-test"
+  on:
+    branch: master
